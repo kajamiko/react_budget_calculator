@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classes from './BudgetCalculator.module.css';
 import RecordsList from '../RecordsList/RecordsList';
-import BudgetRecordInput from '../../components/BudgetRecordInput/BudgetRecordInput';
+import RecordForm from '../RecordForm/RecordForm';
 
 class BudgetCalculator extends Component {
 
@@ -24,14 +24,19 @@ class BudgetCalculator extends Component {
             }
         ],
         totalBudget: 0,
-        percantage: 0
+        percentage: 0
     }
+
+    onRecordChange = (name, value) => {
+
+    }
+
 render() {
     let income = <RecordsList type="income" dataset={this.state.income}></RecordsList>;
     let expenseList = <RecordsList type="expenses" dataset={this.state.expenses}></RecordsList>;
     return (
         <div>
-            <BudgetRecordInput></BudgetRecordInput>
+            <RecordForm />>
             <div className={classes.ListsContainer}>
                 {income}
                 {expenseList}
