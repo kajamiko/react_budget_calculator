@@ -1,0 +1,18 @@
+.BudgetRecord {
+    border-radius: 5px;
+    padding: 7px 20px;
+    margin: 5px;
+    width: 90%;
+    background-color: ghostwhite;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Perc {
+    padding: 4px;
+    border-radius: 5px;
+    font-size: 0.7em;
+    color: red;
+    background-color: azure;
+}

@@ -9,13 +9,19 @@ class BudgetRecord extends Component {
 
         switch(this.props.type){
             case('income'):
-            record = <div>
-            <h4>Salary<span>1500</span></h4>
+            // console.log(this.props.value);
+            record = <div className={classes.BudgetRecord}>
+            <div>{this.props.description}</div><div>{this.props.value}</div>
         </div>
-            case('expense'):
-            record = <div>
-            <h4>Holidays<span>1500</span> <span>{this.props.percentage}</span></h4>
+        break;
+            case('expenses'):
+            record = <div className={classes.BudgetRecord}>
+            <div>{this.props.description}</div><div>{this.props.value}  <span className={classes.Perc}>{this.props.percentage}</span></div>
         </div>
+        break;
+        default:
+        record = null;
+        break;
         }
         return record;
     }
