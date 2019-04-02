@@ -1,0 +1,31 @@
+.Form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.Element {
+    margin: 0 5px;
+}
+
+.Input {
+    /* width: 40%; */
+    font-family: 'Lato';
+    font-size: 1.1em;
+    margin: 0 5px;
+    background-color: ivory;
+    border-color: oldlace;
+    
+}
+
+.TextOnes{
+    width: 30%;
+}
+
+.FormType {
+    width: 15%;
+    text-indent: 50%;
+}
+.Submit {
+    width: 15%;
+}
