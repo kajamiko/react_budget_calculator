@@ -36,7 +36,7 @@ render() {
     let expenseList = <RecordsList type="expenses" dataset={this.state.expenses}></RecordsList>;
     return (
         <div>
-            <RecordForm />>
+            <RecordForm />
             <div className={classes.ListsContainer}>
                 {income}
                 {expenseList}
