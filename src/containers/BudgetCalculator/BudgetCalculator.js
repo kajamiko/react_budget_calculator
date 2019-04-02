@@ -8,21 +8,11 @@ class BudgetCalculator extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            income: [
-                {
-                    description: "Salary",
-                    value: "1800" 
-                }
-            ],
-            expenses: [
-                {
-                    description: "some expense",
-                    value: "500",
-                    percentage: -1
-                }
-            ],
+            income: [],
+            expenses: [],
             totalBudget: 0,
-            percentage: 0
+            percentage: 0,
+            totals: {income: null, expenses: null}
         }
         this.handleClick = this.handleClick.bind(this);
 
@@ -31,21 +21,36 @@ class BudgetCalculator extends Component {
 
     handleClick(event) {
         // creating new object needed, after validation passing to parent state
-        let newObject = {
-             type: nevent.target.type.value,
+        let type =  event.target.type.value;
+        let nobj = {
                          description: event.target.description.value,
-                          value:  event.target.description.value}
-        if (type && description && value) {
+                          value:  event.target.value.value}
+        if (type && nobj.description && nobj.value) {
             console.log("worked");
-            if (type === "income") {
-
-            }
+            this.addItem(nobj, type);
         }
-        // console.log(event.target.value.value);
-        // console.log(event.target.description.value);
-        // console.log(event.target.description.value);
         event.preventDefault();
       };
+
+addItem = (obj, type) => {
+    let newState = this.state;
+    if(type === "expenses"){
+        obj = this.sortOutExpense(obj);
+    }
+    newState[type].push(obj);
+    console.log(newState);
+    this.setState(newState);
+}
+
+sortOutExpense = (obj) => {
+    //function is about to give a minus sign to a value and later on,
+    // to calculate the percentage
+    let val = parseInt(obj.value);
+    obj.value = val / -1;
+    obj.percentage = -1;
+    return obj;
+}
+
 
 render() {
     let income = <RecordsList type="income" dataset={this.state.income}></RecordsList>;

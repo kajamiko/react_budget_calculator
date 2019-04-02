@@ -10,7 +10,8 @@
 }
 
 .Perc {
-    padding: 4px;
+    margin-left: 3px;
+    padding: 3px;
     border-radius: 5px;
     font-size: 0.7em;
     color: red;

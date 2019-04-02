@@ -14,11 +14,6 @@ this.state = {
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-//   handleClick(event) {
-      
-//     console.log("Worked");
-//     event.preventDefault();
-//   };
 
 
   handleInputChange(event) {
