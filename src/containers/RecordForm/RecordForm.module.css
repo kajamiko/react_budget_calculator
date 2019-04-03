@@ -23,9 +23,15 @@
 }
 
 .FormType {
-    width: 15%;
     text-indent: 50%;
+}
+.TypeWidth {
+    width: 15%;
 }
 .Submit {
     width: 15%;
+}
+.Fieldset {
+    display: flex;
+    flex-direction: column;
 }

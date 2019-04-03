@@ -25,7 +25,7 @@ class BudgetCalculator extends Component {
         type =  event.target.type.value;
         nobj = {
                          description: event.target.description.value,
-                          value:  event.target.value.value}
+                          value:  parseInt(event.target.value.value)}
         if (type && nobj.description && nobj.value) {
             if(this.state[type].length > 0)
                 {
@@ -41,34 +41,37 @@ class BudgetCalculator extends Component {
       };
 
 calculateTotal = (type) => {
-    let total, copy;
+    let total, _copy;
     total = 0;
-    this.state.totals[type].foreach((elem)=> {
+    _copy = this.state;
+    _copy[type].forEach(function(elem) {
         total += elem.value;
     });
-    let _copy = this.state;
-    // copy and update the state
+    
+    // // copy and update the state
     _copy.totals[type] = total;
     this.setState(_copy);
+    console.log(this.state.totals);
     }
   
 
 addItem = (obj, type) => {
     let newState = this.state;
+    // console.log(type);
     if(type === "expenses"){
         obj = this.sortOutExpense(obj);
     }
     newState[type].push(obj);
-    console.log(newState);
     this.setState(newState);
-
-    // calculateTotals(this.state[]);
+    // recalculate total of each array
+   
+    this.calculateTotal(type);
 }
 
 sortOutExpense = (obj) => {
     //function is about to give a minus sign to a value and later on,
     // to calculate the percentage
-    let val = parseInt(obj.value);
+    let val = obj.value;
     obj.value = val / -1;
     obj.percentage = -1;
     return obj;
@@ -82,7 +85,7 @@ render() {
         <div>
             <div>
                  <h3>Your budget for %Month% %Year%</h3>
-                <h2>Budget Value</h2>     
+                <h2>Budget Value <span>12%</span></h2>     
             </div>
             <RecordForm handleClick={this.handleClick.bind(this)} />
             <div className={classes.ListsContainer}>

@@ -28,26 +28,34 @@ this.state = {
   render() {
     return (
       <form onSubmit={this.props.handleClick} className={classes.Form}>
-        <select name="type" defaultValue="income" className={`${classes.Input} ${classes.FormType}`} onChange={this.handleInputChange}>
-                     <option value="income" >+</option>
-                     <option value="expenses">-</option>
-                 </select>
-            <input className={`${classes.Input} ${classes.Element} ${classes.TextOnes}`}
+        <div className={`${classes.Fieldset} ${classes.TypeWidth}`}>
+        <label>Income or expense?</label>
+            <select name="type" defaultValue="income" className={`${classes.Input} ${classes.FormType}`} onChange={this.handleInputChange}>
+                        <option value="income" >+</option>
+                        <option value="expenses">-</option>
+            </select>
+        </div>
+        <div className={`${classes.Fieldset} ${classes.TextOnes}`}>
+        <label>Describe it</label>
+            <input className={`${classes.Input} ${classes.Element} `}
                 name="description" 
                 type="text" 
                 placeholder="Description" 
                 onChange={this.handleInputChange}/>
-                <div>
-        <label> Enter the value:</label>
-          <input className={`${classes.Input} ${classes.Element} ${classes.TextOnes}`}
-            name="value"
-            type="number"
-            placeholder="Value"
-            onChange={this.handleInputChange} />
+        </div>
+        <div className={`${classes.Fieldset} ${classes.TextOnes}`}>
+            <label> Enter the value:</label>
+            <input className={`${classes.Input} ${classes.Element} `}
+                name="value"
+                type="number"
+                placeholder="Value"
+                onChange={this.handleInputChange} />
           </div>  
-        <input className={`${classes.Input} ${classes.Submit}`}
-        type="submit" 
-        value="Add"/>
+ 
+            <input className={`${classes.Input} ${classes.Submit}`}
+            type="submit" 
+            value="Add"/>
+ 
       </form>
     );
   }

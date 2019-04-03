@@ -17,3 +17,7 @@
     color: red;
     background-color: azure;
 }
+.RButton {
+    background-color: rgb(200, 150, 022);
+    border: 2px solid red;
+}

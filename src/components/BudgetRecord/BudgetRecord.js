@@ -11,12 +11,12 @@ class BudgetRecord extends Component {
             case('income'):
             // console.log(this.props.value);
             record = <div className={classes.BudgetRecord}>
-            <div>{this.props.description}</div><div>{this.props.value}</div>
+            <div>{this.props.description}</div><div>{this.props.value}<button className={classes.RButton}>-</button></div>
         </div>
         break;
             case('expenses'):
             record = <div className={classes.BudgetRecord}>
-            <div>{this.props.description}</div><div>{this.props.value}  <span className={classes.Perc}>{this.props.percentage}</span></div>
+            <div>{this.props.description}</div><div>{this.props.value}  <span className={classes.Perc}>{this.props.percentage}</span> <button className={classes.RButton}>-</button></div>
         </div>
         break;
         default:
