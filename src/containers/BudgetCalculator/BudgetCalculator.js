@@ -21,16 +21,37 @@ class BudgetCalculator extends Component {
 
     handleClick(event) {
         // creating new object needed, after validation passing to parent state
-        let type =  event.target.type.value;
-        let nobj = {
+        let type, nobj, ID;
+        type =  event.target.type.value;
+        nobj = {
                          description: event.target.description.value,
                           value:  event.target.value.value}
         if (type && nobj.description && nobj.value) {
-            console.log("worked");
+            if(this.state[type].length > 0)
+                {
+                   ID = this.state[type][this.state[type].length - 1].id + 1;  
+                }else {
+                    ID = 0;
+                }
+            nobj.id = ID;
+            console.log(nobj);
             this.addItem(nobj, type);
         }
         event.preventDefault();
       };
+
+calculateTotal = (type) => {
+    let total, copy;
+    total = 0;
+    this.state.totals[type].foreach((elem)=> {
+        total += elem.value;
+    });
+    let _copy = this.state;
+    // copy and update the state
+    _copy.totals[type] = total;
+    this.setState(_copy);
+    }
+  
 
 addItem = (obj, type) => {
     let newState = this.state;
@@ -40,6 +61,8 @@ addItem = (obj, type) => {
     newState[type].push(obj);
     console.log(newState);
     this.setState(newState);
+
+    // calculateTotals(this.state[]);
 }
 
 sortOutExpense = (obj) => {
@@ -57,6 +80,10 @@ render() {
     let expenseList = <RecordsList type="expenses" dataset={this.state.expenses}></RecordsList>;
     return (
         <div>
+            <div>
+                 <h3>Your budget for %Month% %Year%</h3>
+                <h2>Budget Value</h2>     
+            </div>
             <RecordForm handleClick={this.handleClick.bind(this)} />
             <div className={classes.ListsContainer}>
                 {income}

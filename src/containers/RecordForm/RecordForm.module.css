@@ -9,12 +9,12 @@
 }
 
 .Input {
-    /* width: 40%; */
     font-family: 'Lato';
     font-size: 1.1em;
     margin: 0 5px;
     background-color: ivory;
-    border-color: oldlace;
+    /* border-color: oldlace; */
+    border: 2px solid oldlace;
     
 }
 

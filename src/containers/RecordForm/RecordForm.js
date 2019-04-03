@@ -14,8 +14,7 @@ this.state = {
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-
-
+ 
   handleInputChange(event) {
     const target = event.target;
     const value = target.value;
@@ -23,8 +22,9 @@ this.state = {
     this.setState({
       [name]: value
     });
-
   }
+
+
   render() {
     return (
       <form onSubmit={this.props.handleClick} className={classes.Form}>
@@ -37,12 +37,14 @@ this.state = {
                 type="text" 
                 placeholder="Description" 
                 onChange={this.handleInputChange}/>
-
+                <div>
+        <label> Enter the value:</label>
           <input className={`${classes.Input} ${classes.Element} ${classes.TextOnes}`}
             name="value"
             type="number"
             placeholder="Value"
             onChange={this.handleInputChange} />
+          </div>  
         <input className={`${classes.Input} ${classes.Submit}`}
         type="submit" 
         value="Add"/>
