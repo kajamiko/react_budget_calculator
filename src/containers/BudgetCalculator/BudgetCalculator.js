@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classes from './BudgetCalculator.module.css';
 import RecordsList from '../RecordsList/RecordsList';
 import RecordForm from '../RecordForm/RecordForm';
+import BudgetOutput from '../../components/BudgetOutput/BudgetOutput';
 
 class BudgetCalculator extends Component {
 
@@ -34,7 +35,6 @@ class BudgetCalculator extends Component {
                     ID = 0;
                 }
             nobj.id = ID;
-            console.log(nobj);
             this.addItem(nobj, type);
         }
         event.preventDefault();
@@ -54,10 +54,26 @@ calculateTotal = (type) => {
     console.log(this.state.totals);
     }
   
+calculateBudget = () => {
+    let budget = this.state.totals.income + this.state.totals.expenses;
+    console.log(budget);
+    let newState = this.state;
+    newState.totalBudget = budget;
+    this.setState(newState);
+    console.log(this.state);
+}
+
+
+calculateOverallPercentage = () => {
+    let newState, newPerc;
+    newState = this.state;
+    newPerc = (newState.totals.income / newState.totals.expenses) * 100;
+    newState.percentage = newPerc;
+    this.setState(newState);
+}
 
 addItem = (obj, type) => {
     let newState = this.state;
-    // console.log(type);
     if(type === "expenses"){
         obj = this.sortOutExpense(obj);
     }
@@ -66,6 +82,7 @@ addItem = (obj, type) => {
     // recalculate total of each array
    
     this.calculateTotal(type);
+    this.calculateBudget();
 }
 
 sortOutExpense = (obj) => {
@@ -83,10 +100,10 @@ render() {
     let expenseList = <RecordsList type="expenses" dataset={this.state.expenses}></RecordsList>;
     return (
         <div>
-            <div>
-                 <h3>Your budget for %Month% %Year%</h3>
-                <h2>Budget Value <span>12%</span></h2>     
-            </div>
+            <BudgetOutput 
+            budget={this.state.totalBudget}
+            percentage={this.state.percentage}
+            />
             <RecordForm handleClick={this.handleClick.bind(this)} />
             <div className={classes.ListsContainer}>
                 {income}
