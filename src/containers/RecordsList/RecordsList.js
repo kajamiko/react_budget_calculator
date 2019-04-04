@@ -13,9 +13,11 @@ class RecordsList extends Component {
         return <BudgetRecord 
                 type={type}
                 key={key} 
+                id={el.id}
                 value={el.value}
                 description={el.description}
                 percentage={el.percentage}
+                removeItem={this.props.removeItem}
                 >  </BudgetRecord>
     });
     return (<div className={classes.RecList}>
