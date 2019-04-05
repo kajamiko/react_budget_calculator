@@ -55,21 +55,13 @@ calculateTotal = (type) => {
     }
   
 calculateBudget = () => {
-    let budget = this.state.totals.income + this.state.totals.expenses;
+    let budget = this.state.totals.income - this.state.totals.expenses;
     let newState = this.state;
     newState.totalBudget = budget;
     this.setState(newState);
     console.log(this.state);
 }
 
-
-// calculateOverallPercentage = () => {
-//     let newState, newPerc;
-//     newState = this.state;
-//     newPerc = (newState.totals.income / newState.totals.expenses) * 100;
-//     newState.percentage = newPerc;
-//     this.setState(newState);
-// }
 
 calculatePercentages = () => {
     let newState = this.state;
@@ -158,10 +150,12 @@ render() {
             budget={this.state.totalBudget}
             percentage={this.state.percentage}
             />
+            <div className={classes.ItemsDiv}>
             <RecordForm handleClick={this.handleAddClick.bind(this)} />
             <div className={classes.ListsContainer}>
                 {income}
                 {expenseList}
+            </div>
             </div>
         </div>
     );
