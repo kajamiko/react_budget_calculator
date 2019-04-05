@@ -13,7 +13,8 @@ class BudgetCalculator extends Component {
             expenses: [],
             totalBudget: 0,
             percentage: 0,
-            totals: {income: null, expenses: null}
+            totals: {income: null, expenses: null},
+            date: this.displayDate()
         }
         this.handleAddClick = this.handleAddClick.bind(this);
 
@@ -26,7 +27,7 @@ class BudgetCalculator extends Component {
         type =  event.target.type.value;
         nobj = {
                          description: event.target.description.value,
-                          value:  parseInt(event.target.value.value)}
+                          value:  parseFloat(event.target.value.value)}
         if (type && nobj.description && nobj.value) {
             if(this.state[type].length > 0)
                 {
@@ -136,12 +137,24 @@ updateBudget = () => {
     this.calculateItemPercentages();
 }
 
+displayDate = () => {
+    let now;
+    let date = [];
+    now = new Date();
+    let monthNames = ["", "January", "February", "March", "April", "May","June","July", "August", "September", "October", "November","December"];
+
+    date.push(monthNames[now.getMonth()]);
+    date.push(now.getFullYear());
+    return date;
+}
+
 render() {
     let income = <RecordsList removeItem={this.removeItem} type="income" dataset={this.state.income}></RecordsList>;
     let expenseList = <RecordsList removeItem={this.removeItem}  type="expenses" dataset={this.state.expenses}></RecordsList>;
     return (
-        <div>
+        <div className={classes.Main}>
             <BudgetOutput 
+            date={this.state.date}
             budget={this.state.totalBudget}
             percentage={this.state.percentage}
             />

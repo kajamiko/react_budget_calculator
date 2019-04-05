@@ -14,7 +14,7 @@ class RecordsList extends Component {
                 type={type}
                 key={key} 
                 id={el.id}
-                value={el.value}
+                value={el.value.toFixed(2)}
                 description={el.description}
                 percentage={el.percentage}
                 removeItem={this.props.removeItem}

@@ -4,3 +4,6 @@
     flex-direction: row;
     justify-content: space-around;
 }
+.Main {
+    font-family: "Lato", sans-serif;
+}
