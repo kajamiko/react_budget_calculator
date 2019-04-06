@@ -27,7 +27,10 @@ this.state = {
 
   render() {
     return (
-      <form onSubmit={this.props.handleClick} onKeyPress={this.props.handleKeyPress} className={classes.Form}>
+      <form 
+      onSubmit={this.props.handleClick} 
+      // onKeyPress={this.props.handleKeyPress} 
+      className={classes.Form}>
         <div className={`${classes.Fieldset} ${classes.TypeWidth}`}>
         <label>Income or expense?</label>
             <select name="type" defaultValue="income" className={`${classes.Input} ${classes.FormType}`} onChange={this.handleInputChange}>
@@ -48,6 +51,7 @@ this.state = {
             <input className={`${classes.Input} ${classes.Element} `}
                 name="value"
                 type="number"
+                min= "1"
                 placeholder="Value"
                 onChange={this.handleInputChange} />
           </div>  
