@@ -51,11 +51,12 @@ this.state = {
                 placeholder="Value"
                 onChange={this.handleInputChange} />
           </div>  
- 
-            <input className={`${classes.Input} ${classes.Submit}`}
+          <div className={`${classes.Fieldset} `}>
+            <label>Click or hit enter</label>
+            <input className={` ${classes.Submit}`}
             type="submit" 
             value="Add"/>
- 
+          </div>
       </form>
     );
   }

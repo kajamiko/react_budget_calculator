@@ -1,8 +1,8 @@
 .Form {
     width: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
 }
 .Element {
     margin: 0 5px;
@@ -11,27 +11,57 @@
 .Input {
     font-family: 'Lato';
     font-size: 1.1em;
-    margin: 0 5px;
+    /* margin: 0 auto; */
     background-color: ivory;
     /* border-color: oldlace; */
-    border: 2px solid oldlace;
-    
+    border-radius: 7px;
+    border: 1px solid rgb(245,200,200);
+    height: 40px;
 }
 
 .TextOnes{
-    width: 30%;
+    width: 90%;
 }
 
 .FormType {
     text-indent: 50%;
 }
 .TypeWidth {
-    width: 15%;
+    width: 90%;
 }
 .Submit {
-    width: 15%;
+    width: 90%;
+    height: 40px;
+    font-family: 'Lato';
+    font-size: 1.1em;
+    border-radius: 7px;
+    border: 1px solid green;
+    color: white;
+    /* margin: 0 auto; */
+    background-color: green;
+    margin: 5px auto;
 }
 .Fieldset {
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
+}
+@media (min-width: 500px) {
+    .Form {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .Input {
+
+    margin: 0 5px;
+    }
+    .TextOnes{
+        width: 30%;
+    }
+    .TypeWidth {
+        width: 15%;
+    }
+    .Submit {
+        width: 90%;
+    }
 }

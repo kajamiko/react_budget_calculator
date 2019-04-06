@@ -97,7 +97,6 @@ addItem = (obj, type) => {
 }
 
 
-
 removeItem = (ID, type) => {
     let newState = this.state;
     var ids, index;
