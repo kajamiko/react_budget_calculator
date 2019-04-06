@@ -17,9 +17,14 @@ class BudgetCalculator extends Component {
             date: this.displayDate()
         }
         this.handleAddClick = this.handleAddClick.bind(this);
-
+        this.handleKeyPress = this.handleKeyPress.bind(this);
     }
-    
+    handleKeyPress(event) {
+        if(event.key === 'Enter'){
+            // console.log(event.target);
+        }
+       
+    }
 
     handleAddClick(event) {
         // creating new object needed, after validation passing to parent state
@@ -59,7 +64,6 @@ calculateBudget = () => {
     let newState = this.state;
     newState.totalBudget = budget;
     this.setState(newState);
-    console.log(this.state);
 }
 
 
@@ -150,7 +154,10 @@ render() {
             percentage={this.state.percentage}
             />
             <div className={classes.ItemsDiv}>
-            <RecordForm handleClick={this.handleAddClick.bind(this)} />
+            <RecordForm 
+            handleClick={this.handleAddClick.bind(this)}
+            handleKeyPress={this.handleKeyPress.bind(this)}
+            />
             <div className={classes.ListsContainer}>
                 {income}
                 {expenseList}
