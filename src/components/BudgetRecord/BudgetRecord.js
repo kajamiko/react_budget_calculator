@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 import classes from './BudgetRecord.module.css';
+// import FontAwesomeIcon,  { faTrashAlt }  from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faTrashAlt);
 
 class BudgetRecord extends Component {
 
@@ -19,7 +26,9 @@ class BudgetRecord extends Component {
                         <div>{this.props.value}
                         <button className={classes.RButton}
                         onClick={this.clickRemove}
-                        >-</button></div>
+                        >
+                        <FontAwesomeIcon icon={faTrashAlt} />
+                        </button></div>
                     </div>);
         break;
             case('expenses'):
@@ -30,7 +39,7 @@ class BudgetRecord extends Component {
                         <button 
                         className={classes.RButton}
                         onClick={this.clickRemove}
-                        >-</button>
+                        ><FontAwesomeIcon icon={faTrashAlt} /></button>
                         </div>
                     </div>);
         break;

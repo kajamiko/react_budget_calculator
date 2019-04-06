@@ -9,8 +9,8 @@ const BudgetOutput = (props) => {
         <div className={classes.InfoDiv}>
             <div><h3>Your budget for {props.date[0]}  {props.date[1]} </h3></div>
                 <div className={classes.BudgetDiv}>
-                    <div><h2>{props.budget}</h2></div>
-                    <div className={classes.PerBox}>
+                    <div className={classes.BudgetBox}><h2>{props.budget}</h2></div>
+                    <div className={`${classes.PerBox} ${classes.BudgetBox}`}>
                 <h3>{props.percentage}%</h3>
                 </div> 
             </div>    
