@@ -3,6 +3,9 @@ import classes from './BudgetCalculator.module.css';
 import RecordsList from '../RecordsList/RecordsList';
 import RecordForm from '../RecordForm/RecordForm';
 import BudgetOutput from '../../components/BudgetOutput/BudgetOutput';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDizzy } from '@fortawesome/free-solid-svg-icons'
 
 class BudgetCalculator extends Component {
 
@@ -82,9 +85,10 @@ calculateItemPercentages = () => {
     
     newState.expenses.forEach( (elem) => {
         if (newState.totalBudget > 0) {
-            elem.percentage = Math.floor( elem.value / newState.totalBudget * 100);
+            let perc = Math.floor( elem.value / newState.totalBudget * 100);
+            elem.percentage = perc + "%";
         }else {
-            elem.percentage = "!"
+            elem.percentage = <FontAwesomeIcon icon={faDizzy} />;
         }
         
         console.log(newState.totalBudget);

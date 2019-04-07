@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import classes from './BudgetRecord.module.css';
-// import FontAwesomeIcon,  { faTrashAlt }  from '@fortawesome/react-fontawesome';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
@@ -35,7 +33,7 @@ class BudgetRecord extends Component {
             record = (<div className={classes.BudgetRecord}>
                         <div>{this.props.description}</div>
                         <div>{this.props.value}  
-                        <span className={classes.Perc}>{this.props.percentage} %</span>
+                        <span className={classes.Perc}>{this.props.percentage} </span>
                         <button 
                         className={classes.RButton}
                         onClick={this.clickRemove}
