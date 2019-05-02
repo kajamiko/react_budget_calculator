@@ -11,7 +11,7 @@ const BudgetOutput = (props) => {
                 <div className={classes.BudgetDiv}>
                     <div className={classes.BudgetBox}><h2>{props.budget}</h2></div>
                     <div className={`${classes.PerBox} ${classes.BudgetBox}`}>
-                <h3>{props.percentage}</h3>
+                <h3>{props.percentage}%</h3>
                 </div> 
             </div>    
         </div>

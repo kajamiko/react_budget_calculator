@@ -26,9 +26,13 @@
     color: white;
     border-radius: 5px;
     width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .PerBox h3 {
     line-height: 0.2;   
+    text-align: center;
 }
 .BudgetBox {
     margin-left: 5px;

@@ -3,7 +3,6 @@ import classes from './BudgetCalculator.module.css';
 import RecordsList from '../RecordsList/RecordsList';
 import RecordForm from '../RecordForm/RecordForm';
 import BudgetOutput from '../../components/BudgetOutput/BudgetOutput';
-import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDizzy } from '@fortawesome/free-solid-svg-icons'
 
@@ -20,14 +19,8 @@ class BudgetCalculator extends Component {
             date: this.displayDate()
         }
         this.handleAddClick = this.handleAddClick.bind(this);
-        // this.handleKeyPress = this.handleKeyPress.bind(this);
     }
-    // handleKeyPress(event) {
-    //     if(event.key === 'Enter'){
-    //         // console.log(event.target);
-    //     }
-       
-    // }
+
 
     handleAddClick(event) {
         // creating new object needed, after validation passing to parent state
@@ -65,7 +58,7 @@ calculateTotal = (type) => {
 calculateBudget = () => {
     let budget = this.state.totals.income - this.state.totals.expenses;
     let newState = this.state;
-    newState.totalBudget = budget;
+    newState.totalBudget = budget.toFixed(2);
     this.setState(newState);
 }
 
@@ -76,6 +69,7 @@ calculatePercentages = () => {
         newState.percentage = Math.floor(newState.totals.expenses/  newState.totals.income  * 100);
 
         this.setState(newState);
+
     }
      
  }
@@ -114,8 +108,6 @@ addItem = (obj, type) => {
 removeItem = (ID, type) => {
     let newState = this.state;
     var ids, index;
-            // id = 3
-            // ids = [1 4 6 8]
             // because it is not an array of ids but an array of objects. COuld do it the hard way but why
             ids = newState[type].map(function(current) {
                 return current.id;
