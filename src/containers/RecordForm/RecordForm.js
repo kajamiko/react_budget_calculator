@@ -51,7 +51,8 @@ this.state = {
             <input className={`${classes.Input} ${classes.Element} `}
                 name="value"
                 type="number"
-                min= "1"
+                min= "0.01"
+                step="0.01"
                 placeholder="Value"
                 onChange={this.handleInputChange} />
           </div>  
