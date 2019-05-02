@@ -65,13 +65,15 @@ calculateBudget = () => {
 
 calculatePercentages = () => {
     let newState = this.state;
-    if(newState.totals.expenses > 0 && newState.totals.income > 0) {
+    if(newState.totals.expenses > 0  && newState.totals.income > 0) {
         newState.percentage = Math.floor(newState.totals.expenses/  newState.totals.income  * 100);
 
-        this.setState(newState);
+        
 
+    }else if (newState.totals.expenses > 0 ) {
+        newState.percentage = "Too much";
     }
-     
+    this.setState(newState);
  }
 
 calculateItemPercentages = () => {
